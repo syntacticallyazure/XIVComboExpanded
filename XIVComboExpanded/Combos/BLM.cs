@@ -28,6 +28,7 @@ internal static class BLM
         Thunder4 = 7420,
         Despair = 16505,
         UmbralSoul = 16506,
+        Foul = 7422,
         Xenoglossy = 16507,
         Blizzard2 = 25793,
         HighFire2 = 25794,
@@ -69,6 +70,7 @@ internal static class BLM
             BetweenTheLines = 62,
             Despair = 72,
             UmbralSoul = 35,
+            Foul = 70,
             Xenoglossy = 80,
             HighFire2 = 82,
             HighBlizzard2 = 82,
@@ -395,6 +397,24 @@ internal class BlackScathe : CustomCombo
 
             if (level >= BLM.Levels.Xenoglossy && gauge.PolyglotStacks > 0)
                 return BLM.Xenoglossy;
+        }
+
+        return actionID;
+    }
+}
+
+internal class BlackFoulXenoglossySync : CustomCombo
+{
+    protected internal override CustomComboPreset Preset { get; } = CustomComboPreset.BlackFoulXenoglossySyncFeature;
+
+    protected override ComboAction Invoke(uint actionID, uint lastComboMove, float comboTime, byte level)
+    {
+        if (actionID == BLM.Xenoglossy)
+        {
+            if (level < BLM.Levels.Xenoglossy && level >= BLM.Levels.Foul)
+            {
+                return BLM.Foul;
+            }
         }
 
         return actionID;

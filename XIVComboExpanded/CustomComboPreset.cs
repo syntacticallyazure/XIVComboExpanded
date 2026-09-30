@@ -360,6 +360,12 @@ public enum CustomComboPreset
     [CustomComboInfo("(Between the [Retraced]) Ley Lines", "Only replace Ley Lines with Between the Ley Lines when Retrace is already on cooldown.", BLM.JobID)]
     BlackLeyLinesRetraceFeature = 2526,
 
+    [SectionCombo("Level Synchronization")]
+    [IconsCombo([BLM.Xenoglossy, UTL.ArrowLeft, BLM.Foul])]
+    [ExpandedCustomCombo]
+    [CustomComboInfo("Xenoglossy to Foul Level Sync", "Replace Xenoglossy with Foul between the levels of 70-80.", BLM.JobID)]
+    BlackFoulXenoglossySyncFeature = 2527,
+
     #endregion
     // ====================================================================================
     #region BARD
